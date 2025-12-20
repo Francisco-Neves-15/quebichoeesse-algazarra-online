@@ -5,6 +5,19 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    files: ["src/**/*.jsx"],
+    rules: {
+      // .jsx not allowed
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "Program",
+          message: ".jsx files are not allowed in the src directory. Use .tsx, .ts, or .js files."
+        }
+      ]
+    }
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

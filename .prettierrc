@@ -4,5 +4,11 @@
   "trailingComma": "es5",
   "printWidth": 100,
   "tabWidth": 2,
-  "useTabs": true
+  "useTabs": true,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "proseWrap": "preserve",
+  "embeddedLanguageFormatting": "auto",
+  "quoteProps": "as-needed"
 }

@@ -1,17 +1,10 @@
 @echo off
-echo Running typecheck...
-call npm run typecheck
-if errorlevel 1 (
-    echo Typecheck failed!
-    exit /b 1
-)
+echo Starting validation...
 
-echo Running lint:errors...
-call npm run lint:errors
+call valid-common.bat
 if errorlevel 1 (
-    echo Lint failed!
     exit /b 1
 )
 
 echo All validations passed!
-exit /b 0 
+exit /b 0
