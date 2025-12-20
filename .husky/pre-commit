@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Verifica se o commit tem a flag --nocheck
+for arg in "$@"
+do
+    if [ "$arg" = "--nocheck" ]; then
+        echo "Skipping validation (--nocheck flag detected)"
+        exit 0
+    fi
+done
+
+# Executa a validação
+echo "Running validations before commit..."
+./valid.bat
+
+if [ $? -ne 0 ]; then
+    echo "Validation failed! Commit aborted."
+    echo "To skip validation, use: git commit --nocheck"
+    exit 1
+fi

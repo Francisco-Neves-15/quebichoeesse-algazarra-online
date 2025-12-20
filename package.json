@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md}\"",
+    "typecheck": "tsc --noEmit",
+    "lint:errors": "eslint ./src --ext .ts,.tsx --max-warnings 0",
+    "validate": "npm run typecheck && npm run lint:errors",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,md}\"",
+    "format:fix": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md}\"",
+    "validate:full": "npm run format:fix && npm run validate",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.1.0",
@@ -21,6 +29,8 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.7.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
