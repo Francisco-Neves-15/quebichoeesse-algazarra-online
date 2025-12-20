@@ -5,15 +5,33 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Não configurado corretamente
+  // {
+  //   rules: {
+  //     "camelcase": ["error", { "properties": "always" }],
+  //     "@typescript-eslint/naming-convention": [
+  //       "error",
+  //       {
+  //         "selector": "variable",
+  //         "modifiers": ["const"],
+  //         "format": ["UPPER_CASE"]
+  //       },
+  //       {
+  //         "selector": "variable",
+  //         "modifiers": [],
+  //         "format": ["camelCase"]
+  //       }
+  //     ]
+  //   }
+  // },
   {
     files: ["src/**/*.jsx"],
     rules: {
-      // .jsx not allowed
       "no-restricted-syntax": [
         "error",
         {
-          selector: "Program",
-          message: ".jsx files are not allowed in the src directory. Use .tsx, .ts, or .js files."
+          "selector": "Program",
+          "message": ".jsx files are not allowed in the src directory. Use .tsx, .ts, or .js files."
         }
       ]
     }
