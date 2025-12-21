@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 function findJsxFiles(dir) {
   let results = [];
@@ -11,7 +11,7 @@ function findJsxFiles(dir) {
     
     if (stat && stat.isDirectory()) {
       results = results.concat(findJsxFiles(filePath));
-    } else if (file.endsWith('.jsx')) {
+    } else if (file.endsWith(".jsx")) {
       results.push(filePath);
     }
   });
@@ -19,15 +19,15 @@ function findJsxFiles(dir) {
   return results;
 }
 
-const srcDir = path.join(__dirname, '..', 'src');
+const srcDir = path.join(__dirname, "..", "src");
 const jsxFiles = findJsxFiles(srcDir);
 
 if (jsxFiles.length > 0) {
-  console.error('fail: .jsx files found in the src directory:');
+  console.error("fail: .jsx files found in the src directory:");
   jsxFiles.forEach(file => {
     console.error(`   - ${file}`);
   });
-  console.error('\nfail: .jsx files are not allowed. Use .tsx, .ts, or .js files.\n');
+  console.error("\nfail: .jsx files are not allowed. Use .tsx, .ts, or .js files.\n");
   process.exit(1);
 }
 

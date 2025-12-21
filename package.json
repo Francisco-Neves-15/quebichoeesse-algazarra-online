@@ -15,7 +15,9 @@
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,js,css,md}\"",
     "validate:full": "npm run format:fix && npm run validate",
     "check:jsx": "node scripts/check-jsx.js",
-    "prepare": "husky"
+    "check:css": "node scripts/check-css-imports.js",
+    "prepare": "husky",
+    "build:check": "next build"
   },
   "dependencies": {
     "next": "16.1.0",
