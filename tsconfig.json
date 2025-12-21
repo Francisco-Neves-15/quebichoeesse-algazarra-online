@@ -18,8 +18,20 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@private/*": ["./private/*"],
+      "@public/*": ["./public/*"],
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@components/imported*": ["./src/components/imported*"],
+      "@components/own*": ["./src/components/own*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@thunks/*": ["./src/thunks/*"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": [

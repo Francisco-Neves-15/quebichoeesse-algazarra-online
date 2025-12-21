@@ -25,6 +25,11 @@ const eslintConfig = defineConfig([
   //   }
   // },
   {
+    rules: {
+      "prefer-const": "off"
+    }
+  },
+  {
     files: ["src/**/*.jsx"],
     rules: {
       "no-restricted-syntax": [
