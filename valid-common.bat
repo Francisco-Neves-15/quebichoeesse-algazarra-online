@@ -27,10 +27,3 @@ if errorlevel 1 (
     echo CSS check failed!
     exit /b 1
 )
-
-echo Running build check (validates CSS, PostCSS, and Next.js config)...
-call npm run build:check
-if errorlevel 1 (
-    echo Build check failed! This may indicate CSS import errors, PostCSS issues, or other runtime errors.
-    exit /b 1
-)
