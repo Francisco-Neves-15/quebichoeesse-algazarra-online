@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+@theme {
+	/* Cores customizadas - essas não mudam com o tema */
+	--color-primary-100: var(--primary-100);
+	--color-primary-200: var(--primary-200);
+	--color-primary-300: var(--primary-300);
+	--color-secondary-100: var(--secondary-100);
+	--color-secondary-200: var(--secondary-200);
+	--color-secondary-300: var(--secondary-300);
+
+	/* Font families - usando variáveis CSS do Next.js */
+	/* Nota: As variáveis --font-yatra e --font-poppins são definidas pelo Next.js no body */
+	--font-display: var(--font-yatra), serif;
+	--font-body: var(--font-poppins), system-ui, sans-serif;
+
+	/* Background colors */
+	--color-th-bg: var(--background);
+	--color-th-mutedbg: var(--mutedbackground);
+	--color-th-fg: var(--foreground);
+	--color-th-mutedfg: var(--mutedforeground);
+
+	/* Text colors */
+	--color-th-text: var(--text);
+	--color-th-inverted-text: var(--text-inverted);
+}
+
+body.dark {
+	--color-th-bg: var(--background);
+	--color-th-mutedbg: var(--mutedbackground);
+	--color-th-fg: var(--foreground);
+	--color-th-mutedfg: var(--mutedforeground);
+	--color-th-text: var(--text);
+	--color-th-inverted-text: var(--text-inverted);
+}
+
+/* Classes utilitárias customizadas para fontes - fallback caso @theme não funcione */
+@layer utilities {
+	.font-display {
+		font-family: var(--font-yatra), serif;
+	}
+
+	.font-body {
+		font-family: var(--font-poppins), system-ui, sans-serif;
+	}
+}
+
 /* Breakpoints */
 :root {
 	--breakpoint-small: 768px;
@@ -7,113 +52,121 @@
 	--breakpoint-large: 1440px;
 }
 
-/* Resets */
+@layer base {
+	/* Resets */
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
-body {
-	width: 100%;
-	min-height: 100vh;
-	min-height: 100dvh;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
+	body {
+		width: 100%;
+		min-height: 100vh;
+		min-height: 100dvh;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
 
-/* Global */
+	/* Global */
 
-html {
-	width: 100%;
-	font-size: 16px;
-	line-height: 1.5;
-	font-family: Arial, Helvetica, sans-serif;
-	scroll-behavior: smooth;
-}
+	html {
+		width: 100%;
+		font-size: 16px;
+		line-height: 1.5;
+		scroll-behavior: smooth;
+	}
 
-body {
-	width: 100%;
-	min-height: 100dvh;
-	background-color: var(--background);
-}
-body.noScroll {
-	overflow: hidden;
-}
-[data-device="small"] body {
-	min-height: 100svh;
-}
-[data-device="medium"] body {
-	min-height: 100svh;
-}
-[data-device="large"] body {
-	min-height: 100dvh;
-}
+	body {
+		width: 100%;
+		min-height: 100dvh;
+		background-color: var(--background);
+	}
+	body.noScroll {
+		overflow: hidden;
+	}
+	[data-device="small"] body {
+		min-height: 100svh;
+	}
+	[data-device="medium"] body {
+		min-height: 100svh;
+	}
+	[data-device="large"] body {
+		min-height: 100dvh;
+	}
 
-/* main {
-  flex: 1;
-  width: 100%;
-}
-[data-device="small"] main {
-  padding: 0.5rem;
-}
-[data-device="medium"] main {
-  padding: 0.75em;
-}
-[data-device="large"] main {
-  padding: 1em;
-} */
+	/* main {
+    flex: 1;
+    width: 100%;
+  }
+  [data-device="small"] main {
+    padding: 0.5rem;
+  }
+  [data-device="medium"] main {
+    padding: 0.75em;
+  }
+  [data-device="large"] main {
+    padding: 1em;
+  } */
 
-h1 {
-	font-size: 2rem;
-	color: var(--text);
-	font-weight: bold;
-}
-h2 {
-	font-size: 1.75rem;
-	color: var(--text);
-	font-weight: bold;
-}
-h3 {
-	font-size: 1.5rem;
-	color: var(--text);
-	font-weight: bold;
-}
-h4 {
-	font-size: 1.25rem;
-	color: var(--text);
-	font-weight: bold;
-}
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-poppins);
+		color: var(--text);
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 2rem;
+		font-family: var(--font-yatra);
+	}
+	h2 {
+		font-size: 1.75rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+	h4 {
+		font-size: 1.25rem;
+	}
 
-p {
-	font-size: 1rem;
-	color: var(--text);
-	font-weight: normal;
-}
+	p {
+		font-family: var(--font-poppins);
+		font-size: 1rem;
+		color: var(--text);
+		font-weight: normal;
+	}
 
-span {
-	font-weight: 500;
-}
+	span {
+		font-family: var(--font-poppins);
+		font-weight: 500;
+	}
 
-a {
-	text-decoration: none;
-}
+	a {
+		text-decoration: none;
+	}
 
-ul {
-	list-style-type: none;
-	list-style: none;
-}
+	ul {
+		list-style-type: none;
+		list-style: none;
+	}
 
-ul li {
-	font-weight: 500;
-}
+	ul li {
+		font-family: var(--font-poppins);
+		font-weight: 500;
+	}
 
-button {
-	font-family: Arial, Helvetica, sans-serif;
-	display: block;
-	margin: 0;
-	padding: 0;
+	button {
+		font-family: var(--font-poppins);
+		margin: 0;
+		padding: 0;
+	}
+
+	input {
+		font-family: var(--font-poppins);
+	}
 }
 
 /* Overlay */

@@ -26,7 +26,7 @@ const eslintConfig = defineConfig([
   // },
   {
     rules: {
-      "prefer-const": "off"
+      "prefer-const": "off",
     }
   },
   {
