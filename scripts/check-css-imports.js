@@ -99,13 +99,13 @@ cssFiles.forEach(file => {
 });
 
 if (allErrors.length > 0) {
-  console.error('fail: Erros encontrados em imports CSS:');
+  console.error('fail: Errors found in CSS imports:');
   allErrors.forEach(error => {
     console.error(`   - ${error.file}`);
     console.error(`     Import: ${error.import}`);
     console.error(`     Arquivo não encontrado: ${error.resolved}`);
   });
-  console.error('\nfail: Verifique se os arquivos CSS importados existem e se os aliases estão corretos.');
+  console.error('\nfail: Check that the imported CSS files exist and that the aliases (@) are correct.');
   process.exit(1);
 }
 

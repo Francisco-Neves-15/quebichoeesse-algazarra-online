@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@/styles/themes/classic.css";
 
-import { yatraOne, poppins } from "@/styles/fonts";
+import { yatraOne, poppins, irishGrover, alfaSlab } from "@/styles/fonts";
 
 export const metadata: Metadata = {
-	title: "Que Bicho é Esse?",
+	title: "Início | Que Bicho é Esse?",
 	description: "",
 	keywords: "",
 };
-
+ 
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -22,6 +22,8 @@ export default function RootLayout({
 				className={`
         ${poppins.variable}
         ${yatraOne.variable}
+        ${irishGrover.variable}
+        ${alfaSlab.variable}
         antialiased
       `}
 			>

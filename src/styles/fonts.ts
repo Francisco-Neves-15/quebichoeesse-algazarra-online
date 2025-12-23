@@ -33,3 +33,37 @@ export const yatraOne = localFont({
 	variable: "--font-yatra",
 	display: "swap",
 });
+
+export const irishGrover = localFont({
+	src: [
+		{
+			path: "./fonts/Irish_Grover/IrishGrover-Regular.woff",
+			weight: "bold",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Irish_Grover/IrishGrover-Regular.ttf",
+			weight: "bold",
+			style: "normal",
+		},
+	],
+	variable: "--font-irishGrover",
+	display: "swap",
+});
+
+export const alfaSlab = localFont({
+	src: [
+		{
+			path: "./fonts/Alfa_Slab_One/AlfaSlabOne-Regular.woff",
+			weight: "bold",
+			style: "normal",
+		},
+		{
+			path: "./fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf",
+			weight: "bold",
+			style: "normal",
+		},
+	],
+	variable: "--font-alfaSlab",
+	display: "swap",
+});

@@ -23,6 +23,7 @@
       "@private/*": ["./private/*"],
       "@public/*": ["./public/*"],
       "@i18n*": ["./src/i18n/*"],
+      "@styles*": ["./src/styles/*"],
       "@/*": ["./src/*"],
     }
   },

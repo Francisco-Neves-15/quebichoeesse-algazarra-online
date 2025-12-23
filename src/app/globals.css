@@ -8,10 +8,12 @@
 	--color-secondary-100: var(--secondary-100);
 	--color-secondary-200: var(--secondary-200);
 	--color-secondary-300: var(--secondary-300);
+	--color-neutral: var(--neutral);
 
 	/* Font families - usando variáveis CSS do Next.js */
 	/* Nota: As variáveis --font-yatra e --font-poppins são definidas pelo Next.js no body */
-	--font-display: var(--font-yatra), serif;
+	--font-display-1: var(--font-yatra), serif;
+	--font-display-2: var(--font-irish), serif;
 	--font-body: var(--font-poppins), system-ui, sans-serif;
 
 	/* Background colors */
@@ -36,13 +38,18 @@ body.dark {
 
 /* Classes utilitárias customizadas para fontes - fallback caso @theme não funcione */
 @layer utilities {
-	.font-display {
+	.font-display-1 {
 		font-family: var(--font-yatra), serif;
 	}
-
-	.font-body {
-		font-family: var(--font-poppins), system-ui, sans-serif;
+	.font-display-2 {
+    font-family: var(--font-irishGrover), system-ui, sans-serif;
 	}
+	.font-display-3 {
+    font-family: var(--font-alfaSlab), system-ui, sans-serif;
+	}
+  .font-body {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
 }
 
 /* Breakpoints */
@@ -162,6 +169,10 @@ body.dark {
 		font-family: var(--font-poppins);
 		margin: 0;
 		padding: 0;
+	}
+	.btnText {
+    font-size: 1.1rem;
+		font-weight: 500;
 	}
 
 	input {
