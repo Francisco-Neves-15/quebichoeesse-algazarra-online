@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+/* Breakpoints */
+:root {
+	--breakpoint-small: 768px;
+	--breakpoint-medium: 1024px;
+	--breakpoint-large: 1440px;
+}
+
 @theme {
-	/* Cores customizadas - essas não mudam com o tema */
+	/* Custom colors - these do not change with the theme */
 	--color-primary-100: var(--primary-100);
 	--color-primary-200: var(--primary-200);
 	--color-primary-300: var(--primary-300);
@@ -11,9 +18,10 @@
 	--color-neutral: var(--neutral);
 
 	/* Font families - usando variáveis CSS do Next.js */
-	/* Nota: As variáveis --font-yatra e --font-poppins são definidas pelo Next.js no body */
+	/* Note: The variables --font-yatra and --font-poppins are defined by Next.js in the body */
 	--font-display-1: var(--font-yatra), serif;
 	--font-display-2: var(--font-irish), serif;
+	--font-display-3: var(--font-alfaSlab), serif;
 	--font-body: var(--font-poppins), system-ui, sans-serif;
 
 	/* Background colors */
@@ -25,6 +33,7 @@
 	/* Text colors */
 	--color-th-text: var(--text);
 	--color-th-inverted-text: var(--text-inverted);
+	--color-th-link: var(--link);
 }
 
 body.dark {
@@ -33,30 +42,33 @@ body.dark {
 	--color-th-fg: var(--foreground);
 	--color-th-mutedfg: var(--mutedforeground);
 	--color-th-text: var(--text);
+	--color-th-link: var(--link);
 	--color-th-inverted-text: var(--text-inverted);
 }
 
-/* Classes utilitárias customizadas para fontes - fallback caso @theme não funcione */
 @layer utilities {
+	/* Fonts - Fallback for @theme (later look into why @theme isn't working correctly) */
 	.font-display-1 {
 		font-family: var(--font-yatra), serif;
 	}
 	.font-display-2 {
-    font-family: var(--font-irishGrover), system-ui, sans-serif;
+		font-family: var(--font-irishGrover), system-ui, sans-serif;
 	}
 	.font-display-3 {
-    font-family: var(--font-alfaSlab), system-ui, sans-serif;
+		font-family: var(--font-alfaSlab), system-ui, sans-serif;
 	}
-  .font-body {
-    font-family: var(--font-poppins), system-ui, sans-serif;
-  }
+	.font-body {
+		font-family: var(--font-poppins), system-ui, sans-serif;
+	}
 }
 
-/* Breakpoints */
-:root {
-	--breakpoint-small: 768px;
-	--breakpoint-medium: 1024px;
-	--breakpoint-large: 1440px;
+@layer components {
+	.flex-center {
+		@apply flex items-center justify-center;
+	}
+	.grid-center {
+		@apply grid place-items-center;
+	}
 }
 
 @layer base {
@@ -152,7 +164,10 @@ body.dark {
 	}
 
 	a {
-		text-decoration: none;
+		color: var(--link);
+		font-family: var(--font-poppins);
+		font-weight: 500;
+		/* text-decoration: underline; */
 	}
 
 	ul {
@@ -171,7 +186,7 @@ body.dark {
 		padding: 0;
 	}
 	.btnText {
-    font-size: 1.1rem;
+		font-size: 1.1rem;
 		font-weight: 500;
 	}
 

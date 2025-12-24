@@ -2,7 +2,7 @@
 // import { useEffect, useState } from "react";
 
 import Button from "@/components/Own/Button";
-import { FaTrash, FaXmark } from "react-icons/fa6"
+import { FaTrash, FaXmark } from "react-icons/fa6";
 
 export default function Home() {
 	return (
@@ -15,19 +15,18 @@ export default function Home() {
 				tempore quod!
 			</p>
 
-      <Button disable variants="danger" onClick={() => alert("AAAAA")}>
-        <FaTrash size={32} />
-        <p>Nome</p>
-      </Button>
+			<Button disable variants="danger" onClick={() => alert("AAAAA")}>
+				<FaTrash size={32} />
+				<p>Nome</p>
+			</Button>
 
-      <Button icon={<FaXmark size={32} />} />
-      <Button variants="ghost" icon={<FaXmark size={32} />} />
+			<Button icon={<FaXmark size={32} />} />
+			<Button variants="ghost" icon={<FaXmark size={32} />} />
 
-      <Button variants="primary" text={`Algum texto: ${4 * 2}`} />
-      <Button variants="secondary" text={`Algum texto: ${4 * 2}`} />
-      <Button variants="danger" text={`Algum texto: ${4 * 2}`} />
-      <Button disable text={`Desabilitado: ${4 * 4}`} />
-
+			<Button variants="primary" text={`Algum texto: ${4 * 2}`} />
+			<Button variants="secondary" text={`Algum texto: ${4 * 2}`} />
+			<Button variants="danger" text={`Algum texto: ${4 * 2}`} />
+			<Button disable text={`Desabilitado: ${4 * 4}`} />
 		</div>
 	);
 }
