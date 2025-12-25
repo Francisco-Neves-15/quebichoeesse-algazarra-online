@@ -28,7 +28,9 @@ export default function RootLayout({
         antialiased
       `}
 			>
-				{children}
+        <main>
+          {children}
+        </main>
 			</body>
 		</html>
 	);
