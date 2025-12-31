@@ -1,10 +1,21 @@
 "use client";
 // import { useEffect, useState } from "react";
 
-import Button from "@/components/Own/Button";
+import { Button } from "@/components/Own";
 import { FaTrash, FaXmark } from "react-icons/fa6";
 
+// import { Modal, ModalHeader, ModalBody, ModalFooter } from "@/components/Own"
+
 export default function Home() {
+	async function ask() {
+		const confirmed = await global.alerts.confirm({
+			title: "Tem certeza?",
+			btnConfirmText: "Sim",
+			btnCancelText: "Não",
+		});
+		alert(`${confirmed}`);
+	}
+
 	return (
 		<div className="">
 			<h1 className="text-primary-200">Lorem ipsum dolor sit 4444.</h1>
@@ -15,18 +26,31 @@ export default function Home() {
 				tempore quod!
 			</p>
 
-			<Button disable variants="danger" onClick={() => alert("AAAAA")}>
+			<Button disable variant="danger" onClick={() => alert("AAAAA")}>
 				<FaTrash size={32} />
 				<p>Nome</p>
 			</Button>
 
 			<Button icon={<FaXmark size={32} />} />
-			<Button variants="ghost" icon={<FaXmark size={32} />} />
+			<Button variant="ghost" icon={<FaXmark size={32} />} />
 
-			<Button variants="primary" text={`Algum texto: ${4 * 2}`} />
-			<Button variants="secondary" text={`Algum texto: ${4 * 2}`} />
-			<Button variants="danger" text={`Algum texto: ${4 * 2}`} />
+			<Button variant="primary" text={`Algum texto: ${4 * 2}`} />
+			<Button variant="secondary" text={`Algum texto: ${4 * 2}`} />
+			<Button variant="danger" text={`Algum texto: ${4 * 2}`} />
 			<Button disable text={`Desabilitado: ${4 * 4}`} />
+
+			<Button
+				onClick={() =>
+					global.alerts.alert({
+						title: "Alerta",
+						message: "Você não pode realizar essa ação sem estar em uma conta",
+						duration: 3000,
+						showDuration: false,
+					})
+				}
+				text="Alerta"
+			/>
+			<Button onClick={() => ask()} text="Confirmar" />
 		</div>
 	);
 }

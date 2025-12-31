@@ -1,9 +1,13 @@
+"use client";
+
 import { ReactNode, ReactElement } from "react";
 
-import styles from "./Button.module.scss";
+import styles from "./style.module.scss";
+
+type ButtonVariants = "primary" | "secondary" | "neutral" | "ghost" | "danger";
 
 interface ButtonProps {
-	variants?: "primary" | "secondary" | "ghost" | "danger";
+	variant?: ButtonVariants;
 	onClick?: () => void;
 	disable?: boolean;
 	children?: ReactNode;
@@ -11,8 +15,8 @@ interface ButtonProps {
 	icon?: ReactElement;
 }
 
-const Button = ({
-	variants = "primary",
+export const Button = ({
+	variant = "primary",
 	onClick,
 	disable = false,
 	children,
@@ -22,9 +26,10 @@ const Button = ({
 	const variantStyle = {
 		primary: styles.btnPrimary,
 		secondary: styles.btnSecondary,
+		neutral: styles.neutral,
 		ghost: styles.btnGhost,
 		danger: styles.btnDanger,
-	}[variants];
+	}[variant];
 
 	return (
 		<button
@@ -44,5 +49,3 @@ const Button = ({
 		</button>
 	);
 };
-
-export default Button;

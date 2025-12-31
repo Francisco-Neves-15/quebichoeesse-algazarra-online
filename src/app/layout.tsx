@@ -6,6 +6,8 @@ import "@/styles/miscellaneous.scss";
 
 import { yatraOne, poppins, irishGrover, alfaSlab } from "@/styles/fonts";
 
+import { Providers } from "@/providers/";
+
 export const metadata: Metadata = {
 	title: "Início | Que Bicho é Esse?",
 	description: "",
@@ -28,9 +30,9 @@ export default function RootLayout({
         antialiased
       `}
 			>
-        <main>
-          {children}
-        </main>
+				<Providers>
+					<main>{children}</main>
+				</Providers>
 			</body>
 		</html>
 	);

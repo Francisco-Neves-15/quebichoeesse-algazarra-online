@@ -9,7 +9,7 @@ interface RoomLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Room | Que Bicho é Esse?",
+	title: "Room | Que Bicho é Esse?",
 };
 
 export default function RoomLayout({ children }: RoomLayoutProps) {

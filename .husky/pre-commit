@@ -3,7 +3,7 @@
 
 echo "Running validations before commit..."
 
-./valid.bat
+./valid-commit.bat
 STATUS=$?
 
 if [ $STATUS -ne 0 ]; then
