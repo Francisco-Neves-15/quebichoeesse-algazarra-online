@@ -1,13 +1,13 @@
 @use "@styles/scss/mixins.scss" as mixins;
 @use "@styles/scss/variables" as vars;
 
-.btn {
+.btnBase {
   @include mixins.center;
   gap: 0.5rem;
   padding: vars.$padding-ms vars.$padding-ml;
 
   border: none;
-  border-radius: vars.$border-radius-xl;
+  border-radius: vars.$border-radius-md;
 
   color: #ffffff;
   & i { color: #ffffff; }
@@ -32,11 +32,12 @@
 .btnIcon {
   aspect-ratio: 1/1;
   padding: vars.$padding-md;
+  border-radius: vars.$border-radius-xl;
 }
 
 .btnPrimary { background-color: var(--primary-200); }
 .btnSecondary { background-color: var(--secondary-200); }
-.btnDanger { background-color: #b90000; }
+.btnDanger { background-color: var(--danger); }
 .neutral { background-color: var(--neutral); }
 
 .btnGhost {

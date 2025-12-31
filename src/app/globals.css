@@ -26,6 +26,12 @@
 	--color-secondary-opacity: var(--secondary-opacity);
 	--color-neutral-opacity: var(--neutral-opacity);
 
+	/* Colors */
+	--color-success: var(--success);
+	--color-danger: var(--danger);
+	--color-warning: var(--warning);
+	--color-info: var(--info);
+
 	/* General */
 	--color-overlay: var(--overlay);
 
@@ -196,6 +202,8 @@ body.dark {
 		font-family: var(--font-poppins);
 	}
 }
+
+/* Utils */
 
 /* Overlay */
 .overlay {

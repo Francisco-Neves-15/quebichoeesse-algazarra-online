@@ -1,12 +1,12 @@
 "use client";
 
-import { ConfirmType } from "@/types";
+import { AlertsConfirmType } from "@/types";
 import AlertBase from "../base";
 import { Button } from "@/components/Own";
 
 import styles from "../style.module.scss";
 
-export const Confirm = ({
+export const AlertsConfirm = ({
 	visible,
 	title,
 	message,
@@ -14,7 +14,7 @@ export const Confirm = ({
 	btnCancelText = "Cancelar",
 	btnConfirmText = "Confirmar",
 	resolver,
-}: ConfirmType) => {
+}: AlertsConfirmType) => {
 	if (!visible) return null;
 
 	function resolve(value: boolean) {

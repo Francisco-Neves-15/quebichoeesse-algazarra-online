@@ -1,16 +1,21 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
-import { Alert, Confirm } from "@/components/Own";
-import { AlertType, ConfirmType } from "@/types";
+import { AlertsAlert, AlertsConfirm, AlertsInput } from "@/components/Own";
+import { AlertsAlertType, AlertsConfirmType, AlertsInputType, AlertsInputResult } from "@/types";
 
 export function AlertProvider({ children }: { children: ReactNode }) {
-	const [alert, setAlert] = useState<AlertType>({
+	const [alert, setAlert] = useState<AlertsAlertType>({
 		type: "alert",
 		visible: false,
 	});
 
-	const [confirm, setConfirm] = useState<ConfirmType>({
+	const [confirm, setConfirm] = useState<AlertsConfirmType>({
+		type: "confirm",
+		visible: false,
+	});
+
+	const [input, setInput] = useState<AlertsInputType>({
 		type: "confirm",
 		visible: false,
 	});
@@ -42,6 +47,20 @@ export function AlertProvider({ children }: { children: ReactNode }) {
 					});
 				});
 			},
+
+			input: (config) => {
+				return new Promise<AlertsInputResult>((resolve) => {
+					setInput({
+						type: "input",
+						visible: true,
+						...config,
+						resolver: (result) => {
+							resolve(result);
+							setInput({ type: "input", visible: false });
+						},
+					});
+				});
+			},
 		};
 
 		return () => {
@@ -52,8 +71,9 @@ export function AlertProvider({ children }: { children: ReactNode }) {
 	return (
 		<>
 			{children}
-			<Alert {...alert} />
-			<Confirm {...confirm} />
+			<AlertsAlert {...alert} />
+			<AlertsConfirm {...confirm} />
+			<AlertsInput {...input} />
 		</>
 	);
 }

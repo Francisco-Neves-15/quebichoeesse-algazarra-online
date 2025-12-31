@@ -1,2 +1,3 @@
 export * from "./game/";
-export * from "./type-alerts";
+export * from "./components/type-alerts";
+export * from "./general/type-errors";

@@ -16,3 +16,4 @@
 ## App
 
 - Talvez mudar a forma com que as salas funcionam, não separar por "game" ou "lobby", apenas room/codigo.
+- Nos Alerts, ao fechar temos que LIMPAR as informações antigas e definir um "padrão"

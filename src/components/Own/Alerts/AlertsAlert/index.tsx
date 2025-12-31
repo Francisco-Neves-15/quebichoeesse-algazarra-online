@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { AlertType } from "@/types";
+import { AlertsAlertType } from "@/types";
 import { Button } from "@/components/Own";
 import AlertBase from "../base";
 
 import styles from "../style.module.scss";
 
-export const Alert = ({
+export const AlertsAlert = ({
 	visible,
 	title,
 	message,
@@ -16,18 +16,16 @@ export const Alert = ({
 	duration,
 	showDuration = false,
 	onClose,
-}: AlertType) => {
+}: AlertsAlertType) => {
 	const barRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (!visible || !duration) return;
 
-		// 🔹 TIMER — sempre funciona quando há duration
 		const timer = setTimeout(() => {
 			onClose?.();
 		}, duration);
 
-		// 🔹 BARRA — só anima se showDuration for true
 		if (showDuration && barRef.current) {
 			const startTime = performance.now();
 
@@ -45,7 +43,6 @@ export const Alert = ({
 				}
 			};
 
-			// reseta a barra ao abrir
 			barRef.current.style.width = "100%";
 			requestAnimationFrame(animate);
 		}

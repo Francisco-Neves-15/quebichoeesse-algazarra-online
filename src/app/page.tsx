@@ -1,19 +1,31 @@
 "use client";
 // import { useEffect, useState } from "react";
 
-import { Button } from "@/components/Own";
+import { Button, Input } from "@/components/Own";
 import { FaTrash, FaXmark } from "react-icons/fa6";
 
 // import { Modal, ModalHeader, ModalBody, ModalFooter } from "@/components/Own"
 
 export default function Home() {
-	async function ask() {
+	async function userConfirmation() {
 		const confirmed = await global.alerts.confirm({
 			title: "Tem certeza?",
 			btnConfirmText: "Sim",
 			btnCancelText: "Não",
 		});
-		alert(`${confirmed}`);
+		console.log(`${confirmed}`);
+	}
+
+	async function userInsert() {
+		const result = await global.alerts.input({
+			title: "Digite seu nome",
+			placeholder: "Nome",
+		});
+		if (result.confirmed) {
+			console.log("Valor:", result.value);
+		} else {
+			console.log("Usuário cancelou");
+		}
 	}
 
 	return (
@@ -50,7 +62,10 @@ export default function Home() {
 				}
 				text="Alerta"
 			/>
-			<Button onClick={() => ask()} text="Confirmar" />
+			<Button onClick={() => userConfirmation()} text="Confirmar" />
+			<Button onClick={() => userInsert()} text="Inserir" />
+
+			<Input />
 		</div>
 	);
 }

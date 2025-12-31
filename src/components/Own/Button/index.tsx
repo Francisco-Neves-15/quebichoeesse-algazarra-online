@@ -7,19 +7,31 @@ import styles from "./style.module.scss";
 type ButtonVariants = "primary" | "secondary" | "neutral" | "ghost" | "danger";
 
 interface ButtonProps {
-	variant?: ButtonVariants;
-	onClick?: () => void;
-	disable?: boolean;
 	children?: ReactNode;
+	disable?: boolean;
+	variant?: ButtonVariants;
+	id?: string;
+	className?: string;
+	style?: React.CSSProperties;
+	onClick?: () => void;
+	title?: string;
+	name?: string;
+	inert?: boolean;
 	text?: string;
 	icon?: ReactElement;
 }
 
 export const Button = ({
-	variant = "primary",
-	onClick,
-	disable = false,
 	children,
+	disable = false,
+	variant = "primary",
+	id,
+	className,
+	style,
+	onClick,
+	title,
+	name,
+	inert = false,
 	text,
 	icon,
 }: ButtonProps) => {
@@ -33,15 +45,20 @@ export const Button = ({
 
 	return (
 		<button
+			id={id}
 			className={`
-        ${styles.btn} 
+        ${styles.btnBase} 
         ${variantStyle} 
-        ${icon ? styles.btnIcon : ""}
+        ${icon && !text && !children ? styles.btnIcon : ""}
         ${disable ? styles.btnDisable : ""}
+        ${className || ""}
       `}
 			onClick={disable ? () => {} : onClick}
 			disabled={disable}
-			inert={disable}
+			inert={disable || inert}
+			style={style}
+			title={title}
+			name={name}
 		>
 			{icon && icon}
 			{children && children}

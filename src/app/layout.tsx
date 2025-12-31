@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import "@/styles/themes/classic.css";
+import "@/styles/utils-colors.scss";
 import "@/styles/miscellaneous.scss";
 
 import { yatraOne, poppins, irishGrover, alfaSlab } from "@/styles/fonts";
