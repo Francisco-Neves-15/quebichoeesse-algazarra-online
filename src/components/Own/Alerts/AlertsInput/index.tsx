@@ -24,6 +24,12 @@ export const AlertsInput = ({
 	const [valid, setValid] = useState(false);
 	const [error, setError] = useState<TypeErrorCommom>({ is: false, message: "" });
 
+	function clean() {
+		setValue("");
+		setValid(false);
+		setError({ is: false, message: "" });
+	}
+
 	function verify(value: string) {
 		if (value.length !== 0 || value || value === null) {
 			setValid(true);
@@ -37,6 +43,7 @@ export const AlertsInput = ({
 			confirmed: false,
 			value: "",
 		});
+		clean();
 	}
 
 	function confirm() {
@@ -49,6 +56,7 @@ export const AlertsInput = ({
 			confirmed: true,
 			value,
 		});
+		clean();
 	}
 
 	if (!visible) return null;

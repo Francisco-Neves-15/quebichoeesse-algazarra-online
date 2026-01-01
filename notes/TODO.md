@@ -2,7 +2,7 @@
 
 - i18n
 - Providers:
-  - Alert / Confirm / Input
+  - V | Alert / Confirm / Input
   - Toast
   - Theme ???
   - Modal global
@@ -16,4 +16,4 @@
 ## App
 
 - Talvez mudar a forma com que as salas funcionam, não separar por "game" ou "lobby", apenas room/codigo.
-- Nos Alerts, ao fechar temos que LIMPAR as informações antigas e definir um "padrão"
+- V | Nos Alerts, ao fechar temos que LIMPAR as informações antigas e definir um "padrão"

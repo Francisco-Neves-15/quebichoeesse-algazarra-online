@@ -4,21 +4,28 @@ import { ReactNode, useEffect, useState } from "react";
 import { AlertsAlert, AlertsConfirm, AlertsInput } from "@/components/Own";
 import { AlertsAlertType, AlertsConfirmType, AlertsInputType, AlertsInputResult } from "@/types";
 
+// Valores padrão para cada tipo de alert
+const defaultAlert: AlertsAlertType = {
+	type: "alert",
+	visible: false,
+};
+
+const defaultConfirm: AlertsConfirmType = {
+	type: "confirm",
+	visible: false,
+};
+
+const defaultInput: AlertsInputType = {
+	type: "input",
+	visible: false,
+};
+
 export function AlertProvider({ children }: { children: ReactNode }) {
-	const [alert, setAlert] = useState<AlertsAlertType>({
-		type: "alert",
-		visible: false,
-	});
+	const [alert, setAlert] = useState<AlertsAlertType>(defaultAlert);
 
-	const [confirm, setConfirm] = useState<AlertsConfirmType>({
-		type: "confirm",
-		visible: false,
-	});
+	const [confirm, setConfirm] = useState<AlertsConfirmType>(defaultConfirm);
 
-	const [input, setInput] = useState<AlertsInputType>({
-		type: "confirm",
-		visible: false,
-	});
+	const [input, setInput] = useState<AlertsInputType>(defaultInput);
 
 	useEffect(() => {
 		global.alerts = {
@@ -29,7 +36,7 @@ export function AlertProvider({ children }: { children: ReactNode }) {
 					...config,
 					onClose: () => {
 						config.onClose?.();
-						setAlert({ type: "alert", visible: false });
+						setAlert(defaultAlert);
 					},
 				});
 			},
@@ -42,7 +49,7 @@ export function AlertProvider({ children }: { children: ReactNode }) {
 						...config,
 						resolver: (value) => {
 							resolve(value);
-							setConfirm({ type: "confirm", visible: false });
+							setConfirm(defaultConfirm);
 						},
 					});
 				});
@@ -56,7 +63,7 @@ export function AlertProvider({ children }: { children: ReactNode }) {
 						...config,
 						resolver: (result) => {
 							resolve(result);
-							setInput({ type: "input", visible: false });
+							setInput(defaultInput);
 						},
 					});
 				});
