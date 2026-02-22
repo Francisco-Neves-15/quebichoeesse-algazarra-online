@@ -4,7 +4,6 @@ import { ReactNode, useEffect, useState } from "react";
 import { AlertsAlert, AlertsConfirm, AlertsInput } from "@/components/Own";
 import { AlertsAlertType, AlertsConfirmType, AlertsInputType, AlertsInputResult } from "@/types";
 
-// Valores padrão para cada tipo de alert
 const defaultAlert: AlertsAlertType = {
 	type: "alert",
 	visible: false,

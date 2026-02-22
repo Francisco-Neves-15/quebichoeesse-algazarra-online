@@ -62,8 +62,22 @@ export default function Home() {
 				}
 				text="Alerta"
 			/>
+
 			<Button onClick={() => userConfirmation()} text="Confirmar" />
 			<Button onClick={() => userInsert()} text="Inserir" />
+
+      {/* <Button variant="primary" onClick={() => 
+        global.toast.success({
+          type: "",
+          title: "", 
+          desc: "", 
+          duration: "",
+          showDuration: false,
+          origin: "",
+          slide: false,
+          id: "",
+        })
+      } />   */}
 
 			<Input />
 		</div>
